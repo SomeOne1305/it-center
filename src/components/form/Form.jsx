@@ -26,7 +26,12 @@ const Form = () => {
 	)
 
 	const onSubmit = async data => {
-		toast.promise(mutateAsync(data), {
+		const { phone_number, ...last } = data
+		const payload = {
+			phone_number: '+' + phoneNumber,
+			...last,
+		}
+		toast.promise(mutateAsync(payload), {
 			loading: "So'rov jo'natilmoqda...",
 			success: () => {
 				reset()
@@ -105,7 +110,6 @@ const Form = () => {
 										onlyCountries={['uz']}
 										country='uz'
 										inputStyle={{ width: '100%' }}
-										autoFormat={true}
 										placeholder='+998 XX XXX-XX-XX'
 										specialLabel='Telefon raqam'
 										masks={{

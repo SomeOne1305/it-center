@@ -19,7 +19,7 @@
 }
 
 .head_block_item {
-	background-image: url(./icons/homepage.gif);
+	background-image: url('/icons/homepage.gif');
 	background-repeat: no-repeat;
 	background-size: 500px;
 	background-position: right center;

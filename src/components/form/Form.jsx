@@ -34,7 +34,7 @@ const Form = () => {
 		toast.promise(mutateAsync(payload), {
 			loading: "So'rov jo'natilmoqda...",
 			success: () => {
-				reset()
+				reset('')
 				return "So'rovingiz muvaffaqiyatli jo'natildi."
 			},
 			error: 'Xatolik yuz berdi.',

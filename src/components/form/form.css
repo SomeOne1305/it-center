@@ -1,0 +1,7 @@
+.react-tel-input input:focus {
+	border-color: #22c55e !important; /* Change border color on focus */
+	box-shadow: none !important;
+}
+.react-tel-input input {
+	padding: 12px 14px 12px 58px !important;
+}

@@ -1,10 +1,9 @@
-import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import { Container } from '../common';
-
+import { Element, Link as SLink } from 'react-scroll'
+import { TypeAnimation } from 'react-type-animation'
+import { Container } from '../common'
 const HeaderBlock = () => {
 	return (
-		<div className='head_block block py-5 pt-[5%]'>
+		<Element name='home' className='head_block block py-5 pt-[5%]'>
 			<Container>
 				<div
 					id='header-block'
@@ -39,17 +38,17 @@ const HeaderBlock = () => {
 						Kelajak shu yerdan boshlanadi!
 					</p>
 					<div className='mt-5'>
-						<a
-							href='#courses'
+						<SLink
+							to='courses'
 							className='w-auto py-2 px-3 md:py-4 md:px-5 bg-secondary rounded-md mt-5 text-xs xs:text-sm sm:text-md lg:text-xl uppercase font-bold hover:bg-[#38f89e]'
 						>
 							Kursni tanlash
-						</a>
+						</SLink>
 					</div>
 				</div>
 			</Container>
-		</div>
-	);
-};
+		</Element>
+	)
+}
 
-export default HeaderBlock;
+export default HeaderBlock

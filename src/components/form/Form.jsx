@@ -3,6 +3,7 @@ import { Controller, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import PhoneInput from 'react-phone-input-2'
 import { useMutation } from 'react-query'
+import { Element } from 'react-scroll'
 import { formService } from '../../services'
 import { LoadingCircle } from '../Loaders'
 import { Container, Input } from '../common'
@@ -47,7 +48,7 @@ const Form = () => {
 		setPhoneNumber(phoneNumber.length < 4 ? '+998' : phoneNumber)
 	}, [phoneNumber])
 	return (
-		<section className='w-full bg-[#efefef]' id='form'>
+		<Element name='register' className='w-full bg-[#efefef]'>
 			<Container>
 				<div className='w-full my-4 flex flex-col lg:flex-row items-center justify-center  px-4 lg:bg-hero bg-contain bg-no-repeat bg-[17%]'>
 					<div className='text-2xl xs:text-4xl lg:text-5xl w-full  lg:w-1/2 p-5 mr-2 h-auto'>
@@ -150,7 +151,7 @@ const Form = () => {
 					</form>
 				</div>
 			</Container>
-		</section>
+		</Element>
 	)
 }
 

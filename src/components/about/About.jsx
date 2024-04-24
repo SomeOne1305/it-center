@@ -1,12 +1,13 @@
-import React from 'react';
-import { Container } from '../common';
+import React from 'react'
+import { Element } from 'react-scroll'
+import { Container } from '../common'
 
 const About = () => {
 	return (
-		<div className='w-full py-5 bg-[#efefef]' id='about'>
+		<Element name='about' className='w-full py-5 bg-[#efefef]'>
 			<Container>
 				<div className='w-full'>
-					<h1 className='text-4xl my-3 py-3 text-green-500 font-bold text-center uppercase'>
+					<h1 className='text-4xl my-3 mt-5 py-3 text-green-500 font-bold text-center uppercase'>
 						Bizning Jamoa
 					</h1>
 					<div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center gap-5'>
@@ -65,8 +66,8 @@ const About = () => {
 					</p>
 				</div>
 			</div>
-		</div>
-	);
-};
+		</Element>
+	)
+}
 
-export default About;
+export default About

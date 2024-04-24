@@ -1,12 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container } from '../common';
-import Video from './Video';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Element } from 'react-scroll'
+import { Container } from '../common'
+import Video from './Video'
 
 // Icons
 const Courses = () => {
 	return (
-		<div className='py-5 bg-[#efefef]' id='courses'>
+		<Element name='courses' className='py-5 bg-[#efefef]'>
 			<Container>
 				<div className='w-full p-5 gap-4'>
 					<Link to={'/course/web-development'}>
@@ -171,8 +172,8 @@ const Courses = () => {
 					</Link>
 				</div>
 			</Container>
-		</div>
-	);
-};
+		</Element>
+	)
+}
 
-export default Courses;
+export default Courses

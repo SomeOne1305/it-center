@@ -109,6 +109,14 @@ const CourseInfo = () => {
 					icon: PowerpointIcon,
 					name: 'Microsoft PowerPoint',
 				},
+				{
+					icon: 'https://my.gov.uz/img/new-version/logo.png',
+					name: 'my.gov.uz',
+				},
+				{
+					icon: 'https://id.egov.uz/assets/favicon/favicon-128.png',
+					name: 'One ID',
+				},
 			],
 		},
 		{

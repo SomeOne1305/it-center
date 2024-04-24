@@ -26,21 +26,14 @@ const Form = () => {
 	)
 
 	const onSubmit = async data => {
-		const { phone_number, ...last } = data
-		toast.promise(
-			mutateAsync({
-				...last,
-				phone_number: '+' + phone_number,
-			}),
-			{
-				loading: "So'rov jo'natilmoqda...",
-				success: () => {
-					reset()
-					return "So'rovingiz muvaffaqiyatli jo'natildi."
-				},
-				error: 'Xatolik yuz berdi.',
-			}
-		)
+		toast.promise(mutateAsync(data), {
+			loading: "So'rov jo'natilmoqda...",
+			success: () => {
+				reset()
+				return "So'rovingiz muvaffaqiyatli jo'natildi."
+			},
+			error: 'Xatolik yuz berdi.',
+		})
 	}
 	const [phoneNumber, setPhoneNumber] = React.useState('')
 

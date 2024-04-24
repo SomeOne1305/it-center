@@ -1,7 +1,7 @@
-import { faClock, faDollarSign } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import { faClock, faDollarSign } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 import {
 	CssIcon,
 	ExcelIcon,
@@ -14,8 +14,8 @@ import {
 	SassIcon,
 	TsIcon,
 	WordIcon,
-} from '../../assets/icons';
-import { useSplitArray } from '../../hooks';
+} from '../../assets/icons'
+import { useSplitArray } from '../../hooks'
 
 const CourseInfo = () => {
 	const courses = [
@@ -156,20 +156,20 @@ const CourseInfo = () => {
 				},
 			],
 		},
-	];
-	const { course } = useParams();
-	const [data, setData] = React.useState([]);
+	]
+	const { course } = useParams()
+	const [data, setData] = React.useState([])
 	React.useEffect(() => {
-		const courseData = courses.find(e => e.key === course);
+		const courseData = courses.find(e => e.key === course)
 		if (courseData) {
-			setData(courseData);
+			setData(courseData)
 		} else {
-			setData(null);
+			setData(null)
 		}
-	}, [course]);
+	}, [course])
 	const [firstArray, secondArray] = useSplitArray(
 		data.features ? data.features : []
-	);
+	)
 	return (
 		<section className='w-full'>
 			<div className='w-full min-h-[50vh] lg:min-h-[90vh] xl:min-h-[60vh] relative'>
@@ -183,7 +183,7 @@ const CourseInfo = () => {
 				<div className='container'>
 					<div className='flex items-end flex-col md:flex-row'>
 						<div className='w-full md:w-1/2 xl:w-[40%] py-2 md:pt-[5%] xl:pt-[10%]'>
-							<h1 className='text-xl md:text-2xl text-green-500 mt-8'>
+							<h1 className='text-xl md:text-2xl text-green-500 mt-12 lg:mt-8'>
 								{data?.course}
 							</h1>
 							<h2 className='text-2xl md:text-3xl text-white font-bold mt-3 uppercase'>
@@ -278,7 +278,7 @@ const CourseInfo = () => {
 				</div>
 			</div>
 		</section>
-	);
-};
+	)
+}
 
-export default CourseInfo;
+export default CourseInfo

@@ -5,14 +5,14 @@ import {
 	faGraduationCap,
 	faKeyboard,
 	faRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 
 //assets
-import Cookies from 'js-cookie';
-import { useEffect } from 'react';
-import Logo from '../../assets/logo.svg';
+import Cookies from 'js-cookie'
+import { useEffect } from 'react'
+import Logo from '../../assets/logo.svg'
 
 const AdminLayout = () => {
 	const tabs = [
@@ -41,19 +41,18 @@ const AdminLayout = () => {
 			link: 'list/on-register',
 			icon: faBell,
 		},
-	];
-	const navigate = useNavigate();
-	const cook = Cookies.get('access');
+	]
+	const navigate = useNavigate()
+	const cook = Cookies.get('access')
 	useEffect(() => {
 		if (!cook) {
-			navigate('/');
+			navigate('/')
 		}
-	}, [cook]);
+	}, [cook])
 	const logout = () => {
-		Cookies.remove('access');
-		window.location.reload();
-		navigate('/');
-	};
+		Cookies.remove('access')
+		navigate('/')
+	}
 	return (
 		<div className='w-full'>
 			<nav className='w-full fixed top-0 left-0 bg-primary'>
@@ -111,7 +110,7 @@ const AdminLayout = () => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default AdminLayout;
+export default AdminLayout

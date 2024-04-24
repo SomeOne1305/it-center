@@ -1,14 +1,10 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import FormTwo from '../components/form/FormTwo';
-
+import { Outlet } from 'react-router-dom'
 const CoursePage = () => {
 	return (
 		<>
 			<Outlet />
-			<FormTwo />
 		</>
-	);
-};
+	)
+}
 
-export default CoursePage;
+export default CoursePage

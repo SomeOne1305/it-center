@@ -35,12 +35,10 @@ const Form = () => {
 			.promise(mutateAsync(payload), {
 				loading: "So'rov jo'natilmoqda...",
 				success: () => {
-					switch (data?.status) {
-						case 201:
-							return "So'rovingiz muvaffaqiyatli jo'natildi."
-						case 400:
-							return "So'rov qabul qilingan, siz bilan bog'lanishlarini kuting."
-					}
+					console.log(data)
+					data?.status === 201
+						? "So'rovingiz qabul qilindi."
+						: "So'rovingiz qabul qilingan. Iltimos siz bilan bog'lanishlarini kuting"
 				},
 				error: 'Xatolik yuz berdi.',
 			})
@@ -50,6 +48,7 @@ const Form = () => {
 					{ keepValues: false }
 				)
 			)
+			.then(() => setPhoneNumber(''))
 	}
 	const [phoneNumber, setPhoneNumber] = React.useState('')
 

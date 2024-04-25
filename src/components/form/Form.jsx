@@ -34,12 +34,10 @@ const Form = () => {
 		toast
 			.promise(mutateAsync(payload), {
 				loading: "So'rov jo'natilmoqda...",
-				success: () => {
-					console.log(data)
+				success:
 					data?.status === 201
 						? "So'rovingiz qabul qilindi."
-						: "So'rovingiz qabul qilingan. Iltimos siz bilan bog'lanishlarini kuting"
-				},
+						: "So'rovingiz qabul qilingan. Iltimos siz bilan bog'lanishlarini kuting",
 				error: 'Xatolik yuz berdi.',
 			})
 			.then(() =>

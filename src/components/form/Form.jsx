@@ -21,24 +21,35 @@ const Form = () => {
 		formState: { errors },
 	} = useForm()
 
-	const { mutateAsync, isLoading } = useMutation('send-form', formData =>
+	const { mutateAsync, isLoading, data } = useMutation('send-form', formData =>
 		formService.postForm(formData)
 	)
 
-	const onSubmit = async data => {
-		const { phone_number, ...last } = data
+	const onSubmit = async formData => {
+		const { phone_number, ...last } = formData
 		const payload = {
 			phone_number: '+' + phoneNumber,
 			...last,
 		}
-		toast.promise(mutateAsync(payload), {
-			loading: "So'rov jo'natilmoqda...",
-			success: () => {
-				reset('')
-				return "So'rovingiz muvaffaqiyatli jo'natildi."
-			},
-			error: 'Xatolik yuz berdi.',
-		})
+		toast
+			.promise(mutateAsync(payload), {
+				loading: "So'rov jo'natilmoqda...",
+				success: () => {
+					switch (data?.status) {
+						case 201:
+							return "So'rovingiz muvaffaqiyatli jo'natildi."
+						case 400:
+							return "So'rov qabul qilingan, siz bilan bog'lanishlarini kuting."
+					}
+				},
+				error: 'Xatolik yuz berdi.',
+			})
+			.then(() =>
+				reset(
+					{ name: '', surname: '', phone_number: '' },
+					{ keepValues: false }
+				)
+			)
 	}
 	const [phoneNumber, setPhoneNumber] = React.useState('')
 

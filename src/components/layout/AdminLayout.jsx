@@ -43,12 +43,13 @@ const AdminLayout = () => {
 		},
 	]
 	const navigate = useNavigate()
-	const cook = Cookies.get('access')
 	useEffect(() => {
+		const cook = Cookies.get('access')
+
 		if (!cook) {
 			navigate('/')
 		}
-	}, [cook])
+	}, [])
 	const logout = () => {
 		Cookies.remove('access')
 		navigate('/')

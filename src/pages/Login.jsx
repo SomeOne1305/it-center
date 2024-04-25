@@ -1,25 +1,25 @@
-import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Cookies from 'js-cookie';
-import { useContext, useState } from 'react';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import { LoadingCircle } from '../components/Loaders';
-import { Input } from '../components/common';
-import { Context } from '../context';
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Cookies from 'js-cookie'
+import { useContext, useState } from 'react'
+import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
+import { LoadingCircle } from '../components/Loaders'
+import { Input } from '../components/common'
+import { Context } from '../context'
 
 const Login = () => {
-	const { setModalOpen } = useContext(Context);
+	const { setModalOpen } = useContext(Context)
 
-	const admin = import.meta.env.VITE_ADMIN_USERNAME;
-	const password = import.meta.env.VITE_ADMIN_PASS;
+	const admin = import.meta.env.VITE_ADMIN_USERNAME
+	const password = import.meta.env.VITE_ADMIN_PASS
 
-	const [username, setUsername] = useState('');
-	const [pass, setPass] = useState('');
-	const [loading, setLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
+	const [username, setUsername] = useState('')
+	const [pass, setPass] = useState('')
+	const [loading, setLoading] = useState(false)
+	const [isError, setIsError] = useState(false)
 
-	const navigate = useNavigate();
+	const navigate = useNavigate()
 
 	const handleLogin = () => {
 		return new Promise((resolve, reject) => {
@@ -34,42 +34,42 @@ const Login = () => {
 						expires: 604800,
 						secure: true,
 					}
-				);
-				resolve();
+				)
+				resolve()
 			} else {
-				reject(new Error('Invalid username or password'));
-				setLoading(false);
+				reject(new Error('Invalid username or password'))
+				setLoading(false)
 			}
-		});
-	};
+		})
+	}
 	const onSucces = () => {
-		navigate('admin/list/on-process');
-		setLoading(false);
-		setIsError(false);
-		setModalOpen(false);
-	};
+		navigate('admin/list/on-process')
+		setLoading(false)
+		setIsError(false)
+		setModalOpen(false)
+	}
 	const submit = async e => {
-		e.preventDefault();
+		e.preventDefault()
 		try {
-			setLoading(true);
+			setLoading(true)
 			toast
 				.promise(handleLogin(), {
 					loading: "So'rov jo'natilmoqda...",
 					success: () => {
-						navigate('admin/list/on-process');
-						return "Muvaffaqiyatli o'tkazildi.";
+						navigate('admin/list/on-process')
+						return "Muvaffaqiyatli o'tkazildi."
 					},
 					error: () => {
-						setIsError(true);
-						return "Kirish ma'lumotlarida xatolik.";
+						setIsError(true)
+						return "Kirish ma'lumotlarida xatolik."
 					},
 				})
-				.then(() => onSucces());
+				.then(() => onSucces())
 		} catch (error) {
-			setIsError(true);
-			setLoading(false);
+			setIsError(true)
+			setLoading(false)
 		}
-	};
+	}
 	return (
 		<section className='bg-[#000000c9] fixed top-0 left-0 h-screen w-screen z-50'>
 			<div className='container'>
@@ -131,7 +131,7 @@ const Login = () => {
 				</form>
 			</div>
 		</section>
-	);
-};
+	)
+}
 
-export default Login;
+export default Login

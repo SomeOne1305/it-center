@@ -23,7 +23,7 @@ function App() {
 
 	window.addEventListener('keydown', e => {
 		if ((e.ctrlKey || e.metaKey) && e.altKey && e.key === 'o') {
-			if (isAuthentificated) {
+			if (Cookies.get('access')) {
 				setModalOpen(false)
 				navigate('admin/list/on-process')
 			} else {
@@ -32,14 +32,14 @@ function App() {
 		}
 	})
 
-	const _cookie = Cookies.get('access')
 	useEffect(() => {
+		const _cookie = Cookies.get('access')
 		if (_cookie) {
 			setIsAuthentificated(true)
 		} else {
 			setIsAuthentificated(false)
 		}
-	}, [_cookie, setIsAuthentificated])
+	}, [])
 
 	return (
 		<>

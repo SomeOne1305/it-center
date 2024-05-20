@@ -19,7 +19,7 @@ const StudentsService = {
 	async deleteMany(which, ids) {
 		return (
 			await axios.delete(
-				which + '/delete-many?id=' + ids.map(id => + id).join(',')
+				which + '/delete-many?id=' + ids.map(id => id).join(',')
 			)
 		).data;
 	},
